@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <center><h1>La liste des Politiciens</h1></center>
+    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+        <center><a href="{{ path('politicien_ajouter') }}" class="btn btn-outline-primary">Ajouter un nouveau Politicien</a> </center>
+    {% endif %}
+    <br>
+    <table class="table table-hover" style="text-align: center">
+        <thead style="background-color: #17a2b8; color: white;">
+        <tr>
+            <th scope="col">Sexe</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Age</th>
+            <th scope="col">Mairie</th>
+            <th scope="col">Parti</th>
+            <th scope="col">Affaires</th>
+            {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <th scope="col">Action</th>
+            {% endif %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for politicien in politiciens %}
+            <tr>
+                <td>
+                    {{ politicien.sexe }}
+                </td>
+                <td>
+                    {{ politicien.nom }}
+                </td>
+                <td>
+                    {{ politicien.age }}
+                </td>
+                <td>
+                    {{ politicien.mairie }}
+                </td>
+                <td>
+                    {{ politicien.parti }}
+                </td>
+                <td>
+                    {% for affaire in politicien.getAffairesImpliques %}
+                        {{ affaire }}
+                    {% endfor %}
+                </td>
+                    {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                <td>
+                    {% if is_granted('ROLE_USER') %}
+                        <a href="{{ path('politicien_modifier',{'id':politicien.id}) }}" class="btn btn-info">Modifier</a>
+                    {% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('politicien_modifier',{'id':politicien.id}) }}" class="btn btn-info">Modifier</a>
+                        <a href="{{ path('politicien_supprimer',{'id':politicien.id}) }}" class="btn btn-danger">Supprimer</a>
+                    {% endif %}
+                </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

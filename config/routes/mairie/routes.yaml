@@ -1,0 +1,9 @@
+mairie_list:
+  path: /list
+  controller: App\Controller\MairieController::list
+mairie_ajouter:
+  path: /ajouter
+  controller: App\Controller\MairieController::ajouter
+mairie_supprimer:
+  path: /supprimer/{id}
+  controller: App\Controller\MairieController::supprimer

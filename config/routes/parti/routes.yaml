@@ -1,0 +1,20 @@
+parti_list:
+  path: /list
+  controller: App\Controller\PartiController::list
+parti_ajouter:
+  path: /ajouter
+  controller: App\Controller\PartiController::ajouter
+parti_supprimer:
+  path: /supprimer/{id}
+  controller: App\Controller\PartiController::supprimer
+parti_test:
+  path: /test/{id}
+  controller: App\Controller\PartiController::test
+
+parti_all_politiciens:
+  path: /parti_all_politiciens/{id}
+  controller: App\Controller\PartiController::PartiPoliticiens
+  requirements:
+    numero: \d+
+
+

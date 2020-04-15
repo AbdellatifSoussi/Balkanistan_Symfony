@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <style type="text/css">
+        h1{
+            color: red !important;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+<div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+    <h1>Cette page n'existe pas</h1>
+    <p><a href="{{ path('general_index') }}">retour
+        </a> à la page d'accueil.</p>
+    </div>
+</div>
+{% endblock %}

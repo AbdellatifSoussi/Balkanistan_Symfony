@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/navbar.css') }}">
+{% endblock %}
+{% block body %}
+    <div class="container">
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-3">
+                            <a href="{{ path('mairie_list') }}" class="icon">
+
+                                <div class="icon_img" style="background: #7fb67f">
+                                    <i class="fa fa-university"></i>
+                                </div>
+                                <div class="icon_text">
+                                    Mairie
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3">
+                            <a href="{{ path('parti_list') }}" class="icon">
+                                <div class="icon_img" style="background: #9494db">
+                                    <i class="fa fa-bullhorn"></i>
+                                </div>
+                                <div class="icon_text">
+                                    Parti
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3">
+                            <a href="{{ path('politicien_list') }}" class="icon">
+                                <div class="icon_img" style="background: #df7272">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <div class="icon_text">
+                                    Politicien
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-3">
+                            <a href="{{ path('affaire_list') }}" class="icon">
+                                <div class="icon_img" style="background: #e7bf77">
+                                    <i class="fa fa-briefcase"></i>
+                                </div>
+                                <div class="icon_text">
+                                    Affaire
+                                </div>
+                            </a>
+                        </div>
+                        <!--END ROW-->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+{% endblock %}

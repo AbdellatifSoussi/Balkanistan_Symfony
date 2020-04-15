@@ -1,0 +1,18 @@
+affaire_list:
+  path: /list
+  controller: App\Controller\AffaireController::list
+affaire_ajouter:
+  path: /ajouter
+  controller: App\Controller\AffaireController::ajouter
+affaire_supprimer:
+  path: /supprimer/{id}
+  controller: App\Controller\AffaireController::supprimer
+affaire_modifier:
+  path: /modifier/{id}
+  controller: App\Controller\AffaireController::modifier
+  requirements:
+    id: \d+
+affaire_modifier_suite:
+  path: /modifierSuite/{id}
+  controller: App\Controller\AffaireController::modifierSuite
+  methods: POST

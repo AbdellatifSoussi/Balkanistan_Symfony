@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Balakistan{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Serif+Pro:wght@700&display=swap" rel="stylesheet">
+        <style type="text/css">
+            body{
+                background-image: url("https://www.netpremacy.com/wp-content/uploads/2018/09/Background-website-01.jpg");
+            }
+            .username{
+                font-weight: 700;
+            }
+            .username a{
+                color: black !important;
+                text-decoration: none;
+                font-size: 20px;
+            }
+        </style>
+    {% endblock %}
+</head>
+<body>
+{% block menu %}
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <a href="{{ path('general_index') }}" class="navbar-brand">Balkanistan</a>
+    <form class="form-inline">
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+            <div class="username">
+                    <a href='{{ path('logout') }}' id='logout-icon'>
+                        <h5>Bonjour, <span>{{ app.user.username}}</span>
+                        <i class="fa fa-sign-out"></i>
+                    </a>
+                </h5>
+            </div>
+        {% else %}
+            <div class="username">
+                <a href='{{ path('login') }}' id='logout-icon'>
+                    Connexion <i class="fa fa-sign-in"></i>
+                </a>
+            </div>
+        {% endif %}
+    </form>
+</nav>
+
+</body>
+{% endblock %}
+{% block body %}{% endblock %}
+{% block javascripts %}
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+{% endblock %}
+</body>
+</html>

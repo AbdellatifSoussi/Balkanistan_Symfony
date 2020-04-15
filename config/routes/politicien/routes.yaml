@@ -1,0 +1,21 @@
+politicien_list:
+  path: /list
+  controller: App\Controller\PoliticienController::list
+politicien_ajouter:
+  path: /ajouter
+  controller: App\Controller\PoliticienController::ajouter
+politicien_supprimer:
+  path: /supprimer/{id}
+  controller: App\Controller\PoliticienController::supprimer
+politicien_test:
+  path: /test/{id}
+  controller: App\Controller\PoliticienController::test
+politicien_modifier:
+  path: /modifier/{id}
+  controller: App\Controller\PoliticienController::modifier
+  requirements:
+    id: \d+
+politicien_modifier_suite:
+  path: /modifierSuite/{id}
+  controller: App\Controller\PoliticienController::modifierSuite
+  methods: POST

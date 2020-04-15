@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="row d-flex justify-content-center">
+    <div class="col-md-6">
+    <center><h1>Politiciens de la parti {% for p in partiPoliticiens %}{{ p.nom }} {% endfor %}</h1></center>
+    <br>
+    <table class="table table-hover" style="text-align: center">
+        <thead style="background-color: #17a2b8; color: white;">
+        <tr>
+            <th scope="col">Parti</th>
+            <th scope="col">Politiciens</th>
+            <th scope="col">Moyenne d'age</th>
+            <th scope="col"> Parité</th>
+        </tr>
+        <tbody>
+        {% for partiPoliticien in partiPoliticiens %}
+
+            <tr>
+                <td>
+                    {{  partiPoliticien.nom }}
+                </td>
+                <td>
+                    {% for p in partiPoliticien.politiciens %}
+                        {{ p.nom }} |
+                    {% endfor %}
+                </td>
+                <td>
+                    {% for p in partis %}
+                    {{ p[1] }}
+                    {% endfor %}
+                </td>
+                <td>Nombre des femmes
+                    {% for nbrF in nombreFemme %}
+                        ({{ nbrF[1] }} <i class="fa fa-female"></i>)
+                    {% endfor %}
+                    <br>
+                    Nombre des hommes
+                    {% for nbrH in nombreHomme %}
+                        ({{ nbrH[1] }} <i class="fa fa-male"></i>)
+                    {% endfor %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+{% endblock %}

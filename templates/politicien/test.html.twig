@@ -1,0 +1,7 @@
+{% block body %}
+<h1>
+        {% for p in partis %}
+            {{ politicien.nom }} {{ politicien.id }} {{ politicien.age }}
+        {% endfor %}
+</h1>
+{% endblock %}

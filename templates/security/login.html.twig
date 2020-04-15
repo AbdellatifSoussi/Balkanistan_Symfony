@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/login.css') }}">
+{% endblock %}
+{% block body %}
+
+    <div class="form">
+        <div class="tab-content">
+            <div id="signup">
+                <h1>Authentification</h1>
+                <form action="{{ path('login') }}" method="post">
+                    <div class="field-wrap">
+                        <label for="username"></label>
+                        <input type="text" id="username" name="_username" placeholder="Username"/>
+                    </div>
+                    <div class="field-wrap">
+                        <label for="password"></label>
+                        <input type="password" id="password" name="_password" placeholder="Mot de passe"/>
+                    </div>
+                    <button type="submit" class="button button-block"/>Connexion</button>
+                </form>
+
+            </div>
+            <div id="login">
+            </div>
+        </div><!-- tab-content -->
+    </div> <!-- /form -->
+{% endblock %}
